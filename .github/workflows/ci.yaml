@@ -23,7 +23,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm Install
+        run: npm install
 
       - name: Run tests
         run : npn test || echo "No tests found, would add tests in a real project"
