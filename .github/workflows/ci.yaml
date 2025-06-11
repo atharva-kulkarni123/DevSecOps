@@ -99,3 +99,16 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.TOKEN }}
+
+      - name: Name of image
+        uses: docker/metadata-action@v5
+        with:
+          image: ${{ env.REGISTRY }}/{{ env.IMAGE_NAME }}
+          tags: |
+            type=sha,format=long
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with: 
+          context: .
+          push: false
