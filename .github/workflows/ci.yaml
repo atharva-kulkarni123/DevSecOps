@@ -95,5 +95,4 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.TOKEN }}
-          
+          password: ${{ env.TOKEN }}
