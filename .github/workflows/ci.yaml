@@ -46,3 +46,28 @@ jobs:
       
       - name: Lint job
         run: npm run lint
+
+  build:
+    name: Build job 
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'latest'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build 
+        run: npm run build 
+
+      - name: Store artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: dist/
