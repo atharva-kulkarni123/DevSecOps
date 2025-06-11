@@ -94,5 +94,5 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ env.actor }}
-          password: ${{ env.TOKEN }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.TOKEN }}
