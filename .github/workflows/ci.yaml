@@ -105,8 +105,6 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          tags: |
-            type=sha,format=long
 
       - name: Build Docker image
         uses: docker/build-push-action@v5
