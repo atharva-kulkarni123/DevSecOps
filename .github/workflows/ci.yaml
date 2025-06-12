@@ -117,7 +117,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          load: true  
+          # load: true  
 
       - name: Trivy scan
         uses: aquasecurity/trivy-action@master
