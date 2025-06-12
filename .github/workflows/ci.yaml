@@ -101,9 +101,10 @@ jobs:
           password: ${{ secrets.TOKEN }}
 
       - name: Name of image
+        id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/{{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=sha,format=long
 
@@ -112,3 +113,9 @@ jobs:
         with: 
           context: .
           push: false
+
+      - name: Print image name and tags
+        run: |
+          echo "Image name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}"
+          echo "Tags: ${{ steps.meta.outputs.tags }}"
+          echo "Labels: ${{ steps.meta.outputs.labels }}"
